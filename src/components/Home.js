@@ -4,6 +4,10 @@ import Section from './Section'
 
 const Container = styled.div`
     width: 100vw;
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-type: y start ;
+    scroll-snap-align: start;
     
 `
 

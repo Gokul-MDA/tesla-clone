@@ -1,16 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
+html {
+  scroll-snap-type: y mandatory;
+}
+
 *{
   box-sizing: border-box;
   font-family: "Rubik", sans-serif;
   color: #393c41;
   margin: 0;
   padding: 0;
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y start ;
+  scroll-snap-align: start;
 }
 
 body {
   width: 100%;
   overflow-x: hidden;
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y start ;
+  scroll-snap-align: start;
+}
+
+a {
+  text-decoration: none;
 }
 
 @keyframes animateDown {

@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 const Wrap = styled.div`
+    z-index: 10;
     width: 100vw;
     height: 100vh;
     background-image: ${props => `url("/images/${props.bgImage}")`};
@@ -12,6 +14,7 @@ const Wrap = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    scroll-snap-align: start;
 `
 
 const ItemText = styled.div`
@@ -63,22 +66,27 @@ const DownArrow = styled.img`
 const Section = ({ title, description, backgroundImg, leftBtnText, rightBtnText }) => {
     return (
         <Wrap bgImage={backgroundImg}>
-            <ItemText>
-                <h1>{title}</h1>
-                <p>{description}</p>
-            </ItemText>
+            
+            <Fade bottom>
+                <ItemText>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </ItemText>
+            </Fade>
             <Buttons>
-                <ButtonGrp>
-                    <LeftButton>
-                        {leftBtnText}
-                    </LeftButton>
-                    { rightBtnText &&   
-                        <RightButton>
-                            {rightBtnText}
-                        </RightButton>
-                    }
-                </ButtonGrp>
-                <DownArrow src="/images/down-arrow.svg" />
+                <Fade bottom>
+                    <ButtonGrp>
+                        <LeftButton>
+                            {leftBtnText}
+                        </LeftButton>
+                        {rightBtnText &&
+                            <RightButton>
+                                {rightBtnText}
+                            </RightButton>
+                        }
+                    </ButtonGrp>
+                    <DownArrow src="/images/down-arrow.svg" />
+                </Fade>
             </Buttons>
         </Wrap>
     )
